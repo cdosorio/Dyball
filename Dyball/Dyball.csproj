@@ -11,17 +11,38 @@
   <ItemGroup>
     <Content Remove="wwwroot/app\app.component.spec.ts" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app\about.component.ts" />
+    <Content Include="wwwroot\app\app.routing.ts" />
+    <Content Include="wwwroot\app\contact.component.ts" />
+    <Content Include="wwwroot\app\index.component.ts" />
+    <Content Include="wwwroot\app\rxjs-operators.ts" />
+    <Content Include="wwwroot\app\services\SampleData.services.js" />
+    <Content Include="wwwroot\app\services\SampleData.services.js.map" />
+    <Content Include="wwwroot\app\services\SampleData.services.ts" />
+    <Content Include="wwwroot\app\services\SampleData.services2.js" />
+    <Content Include="wwwroot\app\services\SampleData.services2.ts" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="Api\" />
   </ItemGroup>
 
 </Project>
