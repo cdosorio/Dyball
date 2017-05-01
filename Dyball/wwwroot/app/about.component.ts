@@ -1,5 +1,7 @@
-﻿import { Component } from '@angular/core';
-import { SampleDataService } from './services/SampleData.service';
+﻿import { Component, OnInit } from '@angular/core';
+import { SampleDataService } from './services/SampleData.services';
+import { TestData } from './models/TestData';
+
 
 @Component({
     selector: 'my-about',
@@ -7,12 +9,14 @@ import { SampleDataService } from './services/SampleData.service';
 })
 
 export class AboutComponent implements OnInit {
-    testData: string[] = [];
+    testData: TestData;
     errorMessage: string;
+
     constructor(private sampleDataService: SampleDataService) { }
+
     ngOnInit() {
         this.sampleDataService.getSampleData()
-            .subscribe((data: string[]) => this.testData = data,
+            .subscribe((data: TestData) => this.testData = data,
             error => this.errorMessage = <any>error);
     }
 }

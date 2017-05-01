@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Dyball.ViewModels;
 
 namespace Dyball.Api
 {
@@ -13,9 +14,17 @@ namespace Dyball.Api
     {
         // GET: api/SampleData
         [HttpGet]
-        public IEnumerable<string> Get()
+        public TestData Get()
         {
-            return new string[] { "value1", "value2" };
+            var testData = new TestData
+            {
+                Username = "BillBloggs",
+                EmailAddress = "bill.bloggs@example.com",
+                Password = "P@55word",
+                Currency = 123.45M
+            };
+
+            return testData;
         }
 
         // GET: api/SampleData/5

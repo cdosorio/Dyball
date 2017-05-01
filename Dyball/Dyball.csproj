@@ -17,14 +17,14 @@
     <Content Include="wwwroot\app\app.routing.ts" />
     <Content Include="wwwroot\app\contact.component.ts" />
     <Content Include="wwwroot\app\index.component.ts" />
+    <Content Include="wwwroot\app\models\TestData.ts" />
     <Content Include="wwwroot\app\rxjs-operators.ts" />
     <Content Include="wwwroot\app\services\SampleData.services.js" />
     <Content Include="wwwroot\app\services\SampleData.services.js.map" />
     <Content Include="wwwroot\app\services\SampleData.services.ts" />
-    <Content Include="wwwroot\app\services\SampleData.services2.js" />
-    <Content Include="wwwroot\app\services\SampleData.services2.ts" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Humanizer.xproj" Version="2.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />

@@ -1,15 +1,15 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-//import 'rxjs/add/operator/map'
-//import 'rxjs/add/operator/catch'
-//import 'rxjs/Rx'
+import { TestData } from '../models/testData';
+
+
 
 @Injectable()
 export class SampleDataService {
     private url: string = 'api/';
     constructor(private http: Http) { }
-    getSampleData(): Observable<string[]> {
+    getSampleData(): Observable<TestData> {
         return this.http.get(this.url + 'sampleData')
             .map((resp: Response) => resp.json())
             .catch(this.handleError);
