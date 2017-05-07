@@ -1,52 +1,46 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Dyball.ViewModels;
+using Dyball.Data;
+using System.Linq;
 
-namespace Dyball.Api
+namespace A2SPA.Api
 {
-    [Produces("application/json")]
-    [Route("api/SampleData")]
+    [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
-        // GET: api/SampleData
+        private readonly A2spaContext _context;
+
+        public SampleDataController(A2spaContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/values
         [HttpGet]
         public TestData Get()
         {
-            var testData = new TestData
-            {
-                Username = "BillBloggs",
-                EmailAddress = "bill.bloggs@example.com",
-                Password = "P@55word",
-                Currency = 123.45M
-            };
-
-            return testData;
+            // pick up the last value, so we see something happening
+            return _context.TestData.DefaultIfEmpty(null as TestData).LastOrDefault();
         }
 
-        // GET: api/SampleData/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        
-        // POST: api/SampleData
+        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public TestData Post([FromBody]TestData value)
         {
+            // it's valid isn't it? ToDO: add server-side validation here
+            value.Id = 0;
+            var newTestData = _context.Add(value);
+            _context.SaveChanges();
+            return newTestData.Entity as TestData;
         }
-        
-        // PUT: api/SampleData/5
+
+        // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]TestData value)
         {
         }
-        
-        // DELETE: api/ApiWithActions/5
+
+        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

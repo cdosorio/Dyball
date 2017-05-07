@@ -77,20 +77,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password"
-                                   required minlength="8" maxlength="16"
-                                   class="form-control" placeholder="Password"
-                                   [(ngModel)]="testData.password">
-                        </div>
+                        
+                        <tag-di for="Password"></tag-di>
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-warning" (click)="addTestData($event)">Save to database</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Data Display</div>
-                    <div class="panel-body">                        
+                    <div class="panel-body">          
+                        <tag-dd for="Id"></tag-dd>
+
                         <tag-dd for="Username"></tag-dd>
                         
                         <tag-dd For="Currency" pipe="| currency:'USD':true:'1.2-2'"></tag-dd>
@@ -98,6 +99,9 @@
                         <tag-dd For="EmailAddress"></tag-dd>
 
                         <tag-dd For="Password"></tag-dd>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-info" (click)="getTestData($event)">Get last record from database</button>
                     </div>
                 </div>
             </div>
