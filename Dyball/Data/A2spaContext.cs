@@ -1,9 +1,11 @@
-﻿using Dyball.ViewModels;
+﻿using Dyball.Models;
+using Dyball.ViewModels;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dyball.Data
 {
-    public class A2spaContext : DbContext
+    public class A2spaContext : IdentityDbContext<ApplicationUser>
     {
         public A2spaContext(DbContextOptions<A2spaContext> options) : base(options)
         {
@@ -14,6 +16,7 @@ namespace Dyball.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TestData>().ToTable("TestData");
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

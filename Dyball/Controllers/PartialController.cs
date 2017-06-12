@@ -11,5 +11,9 @@ namespace Dyball.Controllers
         public IActionResult ContactComponent() => PartialView();
 
         public IActionResult IndexComponent() => PartialView();
+
+        public IActionResult LoginComponent() => PartialView();
+
+        public IActionResult RegisterComponent() => PartialView();
     }
 }

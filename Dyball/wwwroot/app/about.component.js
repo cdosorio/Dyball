@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var SampleData_services_1 = require("./services/SampleData.services");
+var SampleData_service_1 = require("./services/SampleData.service");
 var AboutComponent = (function () {
     function AboutComponent(sampleDataService) {
         this.sampleDataService = sampleDataService;
@@ -38,7 +38,7 @@ AboutComponent = __decorate([
         selector: 'my-about',
         templateUrl: '/partial/aboutComponent'
     }),
-    __metadata("design:paramtypes", [SampleData_services_1.SampleDataService])
+    __metadata("design:paramtypes", [SampleData_service_1.SampleDataService])
 ], AboutComponent);
 exports.AboutComponent = AboutComponent;
 //# sourceMappingURL=about.component.js.map

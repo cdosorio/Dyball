@@ -3,16 +3,21 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { routing, routedComponents } from './app.routing';
 import { APP_BASE_HREF, Location } from '@angular/common';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { SampleDataService } from './services/SampleData.services';
+import { SampleDataService } from './services/SampleData.service';
+import { AuthService } from './security/auth.service';
+import { AuthGuard } from './security/auth-guard.service';
 import './rxjs-operators';
+
 // enableProdMode();
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, routing],
     declarations: [AppComponent, routedComponents],
-    providers: [SampleDataService, Title, { provide: APP_BASE_HREF, useValue: '/' }],
-  bootstrap:    [ AppComponent ]
+    providers: [SampleDataService,
+        AuthService,
+        AuthGuard, Title, { provide: APP_BASE_HREF, useValue: '/' }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

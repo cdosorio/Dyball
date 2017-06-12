@@ -17,16 +17,30 @@
     <Content Include="wwwroot\app\app.routing.ts" />
     <Content Include="wwwroot\app\contact.component.ts" />
     <Content Include="wwwroot\app\index.component.ts" />
+    <Content Include="wwwroot\app\login.component.ts" />
+    <Content Include="wwwroot\app\models\LoginViewModel.ts" />
+    <Content Include="wwwroot\app\models\RegisterViewModel.ts" />
     <Content Include="wwwroot\app\models\TestData.ts" />
+    <Content Include="wwwroot\app\register.component.ts" />
     <Content Include="wwwroot\app\rxjs-operators.ts" />
+    <Content Include="wwwroot\app\security\auth-guard.service.ts" />
+    <Content Include="wwwroot\app\security\auth.service.ts" />
+    <Content Include="wwwroot\app\security\OpenIdDictToken.ts" />
+    <Content Include="wwwroot\app\services\SampleData.service.js" />
+    <Content Include="wwwroot\app\services\SampleData.service.js.map" />
+    <Content Include="wwwroot\app\services\SampleData.service.ts" />
     <Content Include="wwwroot\app\services\SampleData.services.js" />
     <Content Include="wwwroot\app\services\SampleData.services.js.map" />
     <Content Include="wwwroot\app\services\SampleData.services.ts" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AspNet.Security.OAuth.Introspection" Version="1.0.0" />
+    <PackageReference Include="AspNet.Security.OAuth.Validation" Version="1.0.0" />
     <PackageReference Include="Humanizer.xproj" Version="2.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
@@ -37,13 +51,12 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
+    <PackageReference Include="OpenIddict" Version="1.0.0-beta2-0614" />
+    <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="1.0.0-beta2-0614" />
+    <PackageReference Include="OpenIddict.Mvc" Version="1.0.0-beta2-0614" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Api\" />
-    <Folder Include="Api\" />
   </ItemGroup>
 
 </Project>

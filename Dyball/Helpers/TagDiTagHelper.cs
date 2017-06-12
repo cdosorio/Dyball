@@ -59,7 +59,11 @@ namespace Dyball.Helpers
             inputTag.MergeAttribute("placeholder", shortLabelName);
             inputTag.MergeAttribute("#" + propertyName, "ngModel");
 
-            // set up validation conditional DIV here; only show error if an error in data entry
+            // set up validation conditional DIV's here; only show error if modifications to form have been made
+            TagBuilder outerValidationBlock = new TagBuilder("div");
+            outerValidationBlock.MergeAttribute("*ngIf", string.Format("({0}.dirty || {0}.touched)", propertyName));
+
+            // .. and then, only if an error in data entry
             TagBuilder validationBlock = new TagBuilder("div");
             validationBlock.MergeAttribute("*ngIf", string.Format("{0}.errors", propertyName));
             validationBlock.MergeAttribute("class", "alert alert-danger");
@@ -144,7 +148,8 @@ namespace Dyball.Helpers
             }
 
             // add the validation prepared earlier, to the end, last of all
-            output.Content.AppendHtml(validationBlock);
+            outerValidationBlock.InnerHtml.AppendHtml(validationBlock);
+            output.Content.AppendHtml(outerValidationBlock);
         }
     }
 }

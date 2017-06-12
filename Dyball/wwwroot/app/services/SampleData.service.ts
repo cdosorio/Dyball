@@ -2,35 +2,29 @@
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { TestData } from '../models/testData';
-
-
+import { AuthService } from '../security/auth.service';
 
 @Injectable()
 export class SampleDataService {
 
-    private url: string = 'api/';
+    private url: string = 'api/sampleData';
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private authService: AuthService) { }
 
     getSampleData(): Observable<TestData> {
-        return this.http.get(this.url + 'sampleData')
+        return this.http.get(this.url, { headers: this.authService.authJsonHeaders() })
             .map((resp: Response) => resp.json())
             .catch(this.handleError);
     }
 
     addSampleData(testData: TestData): Observable<TestData> {
-        let headers = new Headers({
-            'Content-Type': 'application/json'
-        });
-
         return this.http
-            .post(this.url, JSON.stringify(testData), { headers: headers })
+            .post(this.url, JSON.stringify(testData), { headers: this.authService.authJsonHeaders() })
             .map((resp: Response) => resp.json())
             .catch(this.handleError);
     }
 
     // from https://angular.io/docs/ts/latest/guide/server-communication.html
-
     private handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;

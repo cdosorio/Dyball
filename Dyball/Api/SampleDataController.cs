@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Dyball.ViewModels;
 using Dyball.Data;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace A2SPA.Api
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
